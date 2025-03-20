@@ -14,11 +14,11 @@
     "noEmit": true,
 
     /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "strict": true, // 严格模式
+    "noUnusedLocals": true, // 未使用的局部变量
+    "noUnusedParameters": true, // 未使用的参数
+    "noFallthroughCasesInSwitch": true, // 在switch语句中，不允许有fallthrough
+    "noUncheckedSideEffectImports": true // 不允许未检查的副作用导入
   },
   "include": ["vite.config.ts"]
 }
