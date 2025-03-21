@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-      <el-form-item label="用户名">
+      <el-form-item label="选择器">
         <el-select
           v-model="checkList"
           class="m-2"
@@ -11,9 +11,9 @@
           @change="handleChange"
         >
         <el-checkbox-group v-model="checkList">
-            <el-space wrap class="ml10">
-                <el-checkbox v-for="items in selectList" :key="items.label" :label="items.label" :value="items.value" />
-            </el-space>
+            <el-option-group v-for="items in selectList" :key="items.value" :label="items.label">
+                <el-option v-for="item in items.options" :label="item.label" :value="item.value"></el-option>
+            </el-option-group>
           </el-checkbox-group>
         </el-select>
       </el-form-item>
@@ -25,6 +25,7 @@
 <script lang="ts" setup>
 import { reactive } from "vue";
 import { ref } from "vue";
+
 
 const form = ref({
   username: "",
