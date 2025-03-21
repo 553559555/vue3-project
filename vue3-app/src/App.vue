@@ -3,17 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <el-container>
-    <el-header class="header">
-      <el-row>
-        <router-link to="/" >首页</router-link>
-        <router-link to="/about" >关于</router-link>
-      </el-row>
-    </el-header>
-    <el-main class="main">
-      <router-view />
-    </el-main>
-  </el-container>
+  <router-view />
 </template>
 
 <style lang="scss">
