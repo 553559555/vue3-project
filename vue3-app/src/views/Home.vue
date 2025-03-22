@@ -90,16 +90,6 @@
       </el-select>
     </el-form-item>
 
-    <el-form-item label="用户名" class="item-container">
-      <el-select class="m-2" size="large" v-model="checkList" placeholder="Select" multiple @change="handleChange">
-        <el-option-group v-for="items in selectList" :label="items.label" :key="items.label">
-          <el-option v-for="item in items.options" :label="item.label" :key="item.label"
-            :value="item.value"></el-option>
-        </el-option-group>
-
-      </el-select>
-    </el-form-item>
-
 
     <el-form-item label="用户名" class="item-container">
       <el-select class="m-2" size="large" v-model="checkList" placeholder="Select" multiple @change="handleChange">
@@ -120,6 +110,10 @@
 import { reactive } from "vue";
 import { ref } from "vue";
 
+
+const form = ref({
+  username: "",
+});
 const checkList = ref([]);
 
 const selectList = reactive([
