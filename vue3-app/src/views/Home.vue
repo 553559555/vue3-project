@@ -1,34 +1,124 @@
 <template>
   <div class="home">
-      <el-form-item label="用户名">
-        <el-select
-          v-model="checkList"
-          class="m-2"
-          placeholder="Select"
-          size="large"
-          multiple
-          style="max-width: 200px"
-          @change="handleChange"
-        >
-        <el-checkbox-group v-model="checkList">
-            <el-space wrap class="ml10">
-                <el-checkbox v-for="items in selectList" :key="items.label" :label="items.label" :value="items.value" />
-            </el-space>
-          </el-checkbox-group>
-        </el-select>
-      </el-form-item>
+    <el-form-item label="用户名" class="item-container">
+      <el-select class="m-2" size="large" v-model="checkList" placeholder="Select" multiple @change="handleChange">
+        <el-option-group v-for="items in selectList" :label="items.label" :key="items.label">
+          <el-option v-for="item in items.options" :label="item.label" :key="item.label"
+            :value="item.value"></el-option>
+        </el-option-group>
 
-    <el-button type="primary" @click="handleSubmit">提交</el-button>
+      </el-select>
+    </el-form-item>
+
+    <el-form-item label="用户名" class="item-container">
+      <el-select class="m-2" size="large" v-model="checkList" placeholder="Select" multiple @change="handleChange">
+        <el-option-group v-for="items in selectList" :label="items.label" :key="items.label">
+          <el-option v-for="item in items.options" :label="item.label" :key="item.label"
+            :value="item.value"></el-option>
+        </el-option-group>
+
+      </el-select>
+    </el-form-item>
+
+    <el-form-item label="用户名" class="item-container">
+      <el-select class="m-2" size="large" v-model="checkList" placeholder="Select" multiple @change="handleChange">
+        <el-option-group v-for="items in selectList" :label="items.label" :key="items.label">
+          <el-option v-for="item in items.options" :label="item.label" :key="item.label"
+            :value="item.value"></el-option>
+        </el-option-group>
+
+      </el-select>
+    </el-form-item>
+
+    <el-form-item label="用户名" class="item-container">
+      <el-select class="m-2" size="large" v-model="checkList" placeholder="Select" multiple @change="handleChange">
+        <el-option-group v-for="items in selectList" :label="items.label" :key="items.label">
+          <el-option v-for="item in items.options" :label="item.label" :key="item.label"
+            :value="item.value"></el-option>
+        </el-option-group>
+
+      </el-select>
+    </el-form-item>
+
+    <el-form-item label="用户名" class="item-container">
+      <el-select class="m-2" size="large" v-model="checkList" placeholder="Select" multiple @change="handleChange">
+        <el-option-group v-for="items in selectList" :label="items.label" :key="items.label">
+          <el-option v-for="item in items.options" :label="item.label" :key="item.label"
+            :value="item.value"></el-option>
+        </el-option-group>
+
+      </el-select>
+    </el-form-item>
+
+    <el-form-item label="用户名" class="item-container">
+      <el-select class="m-2" size="large" v-model="checkList" placeholder="Select" multiple @change="handleChange">
+        <el-option-group v-for="items in selectList" :label="items.label" :key="items.label">
+          <el-option v-for="item in items.options" :label="item.label" :key="item.label"
+            :value="item.value"></el-option>
+        </el-option-group>
+
+      </el-select>
+    </el-form-item>
+
+    <el-form-item label="用户名" class="item-container">
+      <el-select class="m-2" size="large" v-model="checkList" placeholder="Select" multiple @change="handleChange">
+        <el-option-group v-for="items in selectList" :label="items.label" :key="items.label">
+          <el-option v-for="item in items.options" :label="item.label" :key="item.label"
+            :value="item.value"></el-option>
+        </el-option-group>
+
+      </el-select>
+    </el-form-item>
+
+    <el-form-item label="用户名" class="item-container">
+      <el-select class="m-2" size="large" v-model="checkList" placeholder="Select" multiple @change="handleChange">
+        <el-option-group v-for="items in selectList" :label="items.label" :key="items.label">
+          <el-option v-for="item in items.options" :label="item.label" :key="item.label"
+            :value="item.value"></el-option>
+        </el-option-group>
+
+      </el-select>
+    </el-form-item>
+
+    <el-form-item label="用户名" class="item-container">
+      <el-select class="m-2" size="large" v-model="checkList" placeholder="Select" multiple @change="handleChange">
+        <el-option-group v-for="items in selectList" :label="items.label" :key="items.label">
+          <el-option v-for="item in items.options" :label="item.label" :key="item.label"
+            :value="item.value"></el-option>
+        </el-option-group>
+
+      </el-select>
+    </el-form-item>
+
+    <el-form-item label="用户名" class="item-container">
+      <el-select class="m-2" size="large" v-model="checkList" placeholder="Select" multiple @change="handleChange">
+        <el-option-group v-for="items in selectList" :label="items.label" :key="items.label">
+          <el-option v-for="item in items.options" :label="item.label" :key="item.label"
+            :value="item.value"></el-option>
+        </el-option-group>
+
+      </el-select>
+    </el-form-item>
+
+
+    <el-form-item label="用户名" class="item-container">
+      <el-select class="m-2" size="large" v-model="checkList" placeholder="Select" multiple @change="handleChange">
+        <el-option-group v-for="items in selectList" :label="items.label" :key="items.label">
+          <el-option v-for="item in items.options" :label="item.label" :key="item.label"
+            :value="item.value"></el-option>
+        </el-option-group>
+
+      </el-select>
+    </el-form-item>
+
+    
   </div>
+  <el-button type="primary" @click="handleSubmit">提交</el-button>
 </template>
 
 <script lang="ts" setup>
 import { reactive } from "vue";
 import { ref } from "vue";
-
-const form = ref({
-  username: "",
-});
 
 const checkList = ref([]);
 
@@ -75,7 +165,20 @@ const handleSubmit = () => {
 <style scoped lang="scss">
 .home {
   background-color: #fff;
-  height: 100%;
-  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+  .item-container {
+
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    height: 40px;
+
+    .m-2 {
+      min-width: 200px;
+    }
+  }
+
 }
 </style>
