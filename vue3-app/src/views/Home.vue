@@ -2,7 +2,9 @@
   <div class="home-container">
     <el-row class="row">
       <el-col :span="12">
-        <div class="grid-content" />
+        <div class="grid-content" >
+          <home-chart/>
+        </div>
       </el-col>
       <el-col :span="12">
         <div class="grid-content" />
@@ -23,6 +25,8 @@
 
 <script lang="ts" setup>
 
+import HomeChart from './components/home-chart.vue'
+
 </script>
 
 <style scoped lang="scss">
@@ -38,7 +42,7 @@
       .grid-content {
         margin: 40px;
         border: solid 1px #999;
-        height: 300px;
+        min-height: 300px;
       }
 
     }
