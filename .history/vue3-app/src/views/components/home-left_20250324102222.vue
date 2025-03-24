@@ -54,11 +54,10 @@ const handleSelect = (key, keyPath) => {
 .home-left-container {
     height: 100%;
     width: 100%;
-    background-color: #fff;
 
     .el-menu-vertical-demo:not(.el-menu--collapse) {
         width: 200px;
-        min-height: 100%;
+        min-height: 400px;
     }
 }
 </style>

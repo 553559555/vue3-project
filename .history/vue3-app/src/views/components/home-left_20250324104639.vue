@@ -58,7 +58,7 @@ const handleSelect = (key, keyPath) => {
 
     .el-menu-vertical-demo:not(.el-menu--collapse) {
         width: 200px;
-        min-height: 100%;
+        min-height: 400px;
     }
 }
 </style>

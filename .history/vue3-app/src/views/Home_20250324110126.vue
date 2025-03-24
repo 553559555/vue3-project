@@ -29,6 +29,7 @@
 .home-container {
   width: 100%;
   height: 100%;
+  background-color: aqua;
 
   .row {
     min-height: 200px;

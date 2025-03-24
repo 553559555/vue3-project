@@ -29,16 +29,17 @@
 .home-container {
   width: 100%;
   height: 100%;
+  background-color: aqua;
 
   .row {
     min-height: 200px;
 
     .el-col {
+      border: solid 1px #aaa;
 
       .grid-content {
-        margin: 40px;
+        margin: 80px;
         border: solid 1px #999;
-        height: 300px;
       }
 
     }

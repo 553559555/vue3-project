@@ -1,5 +1,5 @@
 <template>
-    <div class="home-left-container">
+    <div class="container">
         <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
             @select="handleSelect">
             <el-sub-menu v-for="(items, index) in listData" :index="items.name" :key="index">
@@ -9,7 +9,7 @@
                     </el-icon>
                     <span>{{ items.name }}</span>
                 </template>
-                <el-menu-item v-for="(item, index) in items.children" :index="item.name" :key="index">
+                <el-menu-item v-for="(item, index) in items.children" :index="item.name">
                     <el-icon>
                         <location />
                     </el-icon>
@@ -26,15 +26,17 @@ import { Location } from "@element-plus/icons-vue";
 import { reactive, ref } from "vue";
 const listData = reactive([
     {
-        name: "常用组件学习列表",
+        name: "常用组件列表",
         children: [
-            {
-                name: 'button'
-            },
-            {
-                name: 'input'
-            }
-        ],
+        {
+            name: 'button'
+        },
+        {
+            name: 'input'
+        }  
+    
+    
+    ],
     },
 ]);
 const isCollapse = ref(true);
@@ -51,14 +53,13 @@ const handleSelect = (key, keyPath) => {
 </script>
 
 <style scoped lang="scss">
-.home-left-container {
-    height: 100%;
+.container {
     width: 100%;
-    background-color: #fff;
+    height: 100%;
 
     .el-menu-vertical-demo:not(.el-menu--collapse) {
         width: 200px;
-        min-height: 100%;
+        min-height: 400px;
     }
 }
 </style>

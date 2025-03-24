@@ -2,19 +2,19 @@
   <div class="home-container">
     <el-row class="row">
       <el-col :span="12">
-        <div class="grid-content" />
+        <div class="grid-content ep-bg-purple-dark" />
       </el-col>
       <el-col :span="12">
-        <div class="grid-content" />
+        <div class="grid-content ep-bg-purple-dark" />
       </el-col>
     </el-row>
 
     <el-row class="row">
       <el-col :span="12">
-        <div class="grid-content" />
+        <div class="grid-content ep-bg-purple-dark" />
       </el-col>
       <el-col :span="12">
-        <div class="grid-content" />
+        <div class="grid-content ep-bg-purple-dark" />
       </el-col>
     </el-row>
 
@@ -29,18 +29,13 @@
 .home-container {
   width: 100%;
   height: 100%;
+  background-color: aqua;
 
   .row {
-    min-height: 200px;
+    height: 400px;
 
     .el-col {
-
-      .grid-content {
-        margin: 40px;
-        border: solid 1px #999;
-        height: 300px;
-      }
-
+      border: solid 1px #aaa;
     }
   }
 }

@@ -1,8 +1,6 @@
 <template>
     <div>
-        <el-header>
-            <home-header />
-        </el-header>
+        <el-header>Header</el-header>
         <el-container>
             <el-aside width="200px">
                 <home-left />
@@ -19,7 +17,6 @@
 
 import { RouterView } from 'vue-router'
 import HomeLeft from './components/home-left.vue'
-import HomeHeader from './components/home-header.vue'
 
 </script>
 
@@ -33,12 +30,7 @@ div {
 
     .el-header {
         height: 80px;
-        padding: 0;
-    }
-
-
-    .el-container {
-        height: calc(100vh - 80px);
+        padding: 0xp;
     }
 
     .el-main {

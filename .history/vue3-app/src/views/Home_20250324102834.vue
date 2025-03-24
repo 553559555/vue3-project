@@ -1,0 +1,22 @@
+<template>
+  <div class="home-container">
+    <el-row>
+      <el-col :span="1">
+        <div class="grid-content ep-bg-purple-dark" />
+      </el-col>
+    </el-row>
+</template>
+
+<script lang="ts" setup>
+
+</script>
+
+<style scoped lang="scss">
+.home-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>

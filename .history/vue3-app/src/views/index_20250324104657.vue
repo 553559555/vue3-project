@@ -1,0 +1,42 @@
+<template>
+    <el-header>Header</el-header>
+    <el-container>
+        <el-aside width="200px">
+            <home-left />
+        </el-aside>
+        <el-main>
+            <router-view>
+            </router-view>
+        </el-main>
+    </el-container>
+</template>
+
+<script setup>
+
+import { RouterView } from 'vue-router'
+import HomeLeft from './components/home-left.vue'
+
+</script>
+
+
+
+<style scoped lang="scss">
+.el-header {
+    background-color: blue;
+    box-sizing: border-box;
+}
+
+.el-container {
+    box-sizing: border-box;
+
+    .el-aside {
+        box-sizing: border-box;
+    }
+
+    .el-main {
+        background-color: bisque;
+        padding: 0;
+        box-sizing: border-box;
+    }
+}
+</style>
