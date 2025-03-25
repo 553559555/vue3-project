@@ -23,6 +23,7 @@
             </el-dropdown>
         </div>
     </div>
+    <div class="line"></div>
 </template>
 
 <script setup>
@@ -42,7 +43,6 @@ const handleLogout = () => {
 .home-header {
     width: 100%;
     height: 100%;
-    background-color: aquamarine;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -87,4 +87,12 @@ const handleLogout = () => {
         }
     }
 }
+.line {
+        position: absolute;
+        bottom: 1;
+        left: 0;    
+        width: 100%;
+        height: 1px;
+        background-color: #999;
+    }
 </style>

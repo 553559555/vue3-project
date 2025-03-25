@@ -22,9 +22,12 @@
 
 <script setup>
 import { Location } from "@element-plus/icons-vue";
-
+import { useRouter } from 'vue-router'
 import { reactive, ref } from "vue";
 const listData = reactive([
+    {
+        name: "首页",
+    },
     {
         name: "常用组件学习列表",
         children: [
@@ -32,12 +35,12 @@ const listData = reactive([
                 name: 'button'
             },
             {
-                name: 'input'
+                name: 'input',
             }
         ],
     },
 ]);
-const isCollapse = ref(true);
+const router = useRouter();
 const handleOpen = (key, keyPath) => {
     console.log(key, keyPath);
 };
@@ -47,6 +50,7 @@ const handleClose = (key, keyPath) => {
 
 const handleSelect = (key, keyPath) => {
     console.log(key, keyPath);
+    router.push({name: key})
 };
 </script>
 
