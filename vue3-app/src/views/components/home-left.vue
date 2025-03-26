@@ -1,7 +1,6 @@
 <template>
     <div class="home-left-container">
-        <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
-            @select="handleSelect">
+        <el-menu default-active="2" class="el-menu-vertical-demo" @select="handleSelect">
             <el-sub-menu v-for="(items, index) in listData" :index="items.name" :key="index">
                 <template #title>
                     <el-icon>
@@ -22,8 +21,11 @@
 
 <script setup>
 import { Location } from "@element-plus/icons-vue";
-
 import { reactive, ref } from "vue";
+import { useBreadcrumbStore } from "../../stores/Breadcrumb";
+
+const breadcrumbStore = useBreadcrumbStore()
+
 const listData = reactive([
     {
         name: "常用组件学习列表",
@@ -36,17 +38,22 @@ const listData = reactive([
             }
         ],
     },
+    {
+        name: "组件列表",
+        children: [
+            {
+                name: 'view'
+            },
+            {
+                name: 'chart'
+            }
+        ],
+    },
 ]);
-const isCollapse = ref(true);
-const handleOpen = (key, keyPath) => {
-    console.log(key, keyPath);
-};
-const handleClose = (key, keyPath) => {
-    console.log(key, keyPath);
-};
 
 const handleSelect = (key, keyPath) => {
     console.log(key, keyPath);
+    breadcrumbStore.setList(keyPath)
 };
 </script>
 

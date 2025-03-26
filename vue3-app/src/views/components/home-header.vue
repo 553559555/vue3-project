@@ -4,6 +4,11 @@
             <img src="/src/assets/vue.svg" alt="logo" />
             <span>Vue3</span>
         </div>
+        <div>
+            <el-breadcrumb separator="/">
+                <el-breadcrumb-item v-for="item in breadcrumbStore.dataList">{{ item }}</el-breadcrumb-item>
+            </el-breadcrumb>
+        </div>
         <div class="home-header-right">
             <el-icon class="user-icon" :size="40">
                 <User />
@@ -27,6 +32,9 @@
 
 <script setup>
 import { User, ArrowDown, Setting, Expand } from '@element-plus/icons-vue'
+import { useBreadcrumbStore } from '../../stores/Breadcrumb'
+
+const breadcrumbStore = useBreadcrumbStore()
 
 const handleSetting = () => {
     console.log('设置')
