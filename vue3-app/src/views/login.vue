@@ -64,9 +64,9 @@ const login = () => {
                 // 如果不记住密码，清除保存的信息
                 userLoginStore.clearUserInfo()
             }
-            router.push('/index')
+            router.replace('/index')
         }
-    })
+    })    
 }
 </script>
 

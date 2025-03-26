@@ -21,6 +21,7 @@
 
 <script setup>
 import { Location } from "@element-plus/icons-vue";
+import { useRouter } from 'vue-router'
 import { reactive, ref } from "vue";
 import { useBreadcrumbStore } from "../../stores/Breadcrumb";
 
@@ -28,13 +29,16 @@ const breadcrumbStore = useBreadcrumbStore()
 
 const listData = reactive([
     {
+        name: "首页",
+    },
+    {
         name: "常用组件学习列表",
         children: [
             {
                 name: 'button'
             },
             {
-                name: 'input'
+                name: 'input',
             }
         ],
     },
@@ -51,9 +55,10 @@ const listData = reactive([
     },
 ]);
 
+
 const handleSelect = (key, keyPath) => {
-    console.log(key, keyPath);
     breadcrumbStore.setList(keyPath)
+    router.push({name: key})
 };
 </script>
 
