@@ -1,22 +1,28 @@
 <template>
-    <div class="home-left-container">
-        <el-menu default-active="2" class="el-menu-vertical-demo" @select="handleSelect">
-            <el-sub-menu v-for="(items, index) in listData" :index="items.name" :key="index">
-                <template #title>
+        <el-menu default-active="2" class="el-menu-vertical-demo" @select="handleSelect" :collapse="breadcrumbStore.isCollapse">
+            <template v-for="(items, index) in listData" :key="items.name">
+                <el-sub-menu v-if="items.children && items.children.length" :index="items.name">
+                    <template #title>
+                        <el-icon>
+                            <location />
+                        </el-icon>
+                        <span>{{ items.name }}</span>
+                    </template>
+                    <el-menu-item v-for="(item, index) in items.children" :index="item.name" :key="item.name">
+                        <el-icon>
+                            <location />
+                        </el-icon>
+                        <span>{{ item.name }}</span>
+                    </el-menu-item>
+                </el-sub-menu>
+                <el-menu-item v-else :index="items.name">
                     <el-icon>
                         <location />
                     </el-icon>
                     <span>{{ items.name }}</span>
-                </template>
-                <el-menu-item v-for="(item, index) in items.children" :index="item.name" :key="index">
-                    <el-icon>
-                        <location />
-                    </el-icon>
-                    <span>{{ item.name }}</span>
                 </el-menu-item>
-            </el-sub-menu>
+            </template>
         </el-menu>
-    </div>
 </template>
 
 <script setup>
@@ -26,10 +32,11 @@ import { reactive, ref } from "vue";
 import { useBreadcrumbStore } from "../../stores/Breadcrumb";
 
 const breadcrumbStore = useBreadcrumbStore()
+const router = useRouter()
 
 const listData = reactive([
     {
-        name: "首页",
+        name: "Home",
     },
     {
         name: "常用组件学习列表",
@@ -63,14 +70,8 @@ const handleSelect = (key, keyPath) => {
 </script>
 
 <style scoped lang="scss">
-.home-left-container {
-    height: 100%;
-    width: 100%;
-    background-color: #fff;
-
-    .el-menu-vertical-demo:not(.el-menu--collapse) {
+.el-menu-vertical-demo:not(.el-menu--collapse) {
         width: 200px;
-        min-height: 100%;
+        min-height: 400px;
     }
-}
 </style>

@@ -27,12 +27,25 @@
 
 import HomeChart from './components/home-chart.vue'
 
+
+const fn = () => console.log(111111); console.log(222222)
+
+const fn1 = () => {
+  return '222222'
+}
+
+
+console.log(fn())
+
+
+
 </script>
 
 <style scoped lang="scss">
 .home-container {
   width: 100%;
   height: 100%;
+  background-color: #fff;
 
   .row {
     min-height: 200px;

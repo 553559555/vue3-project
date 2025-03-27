@@ -4,8 +4,12 @@
             <img src="/src/assets/vue.svg" alt="logo" />
             <span>Vue3</span>
         </div>
-        <div>
-            <el-breadcrumb separator="/">
+        <div class="home-header-center">
+            <el-icon color="#999" size="20" @click="breadcrumbStore.setIsCollapse">
+                <Fold v-if="!breadcrumbStore.isCollapse" />
+                <Expand v-else />
+            </el-icon>
+            <el-breadcrumb separator="/" style="margin-left: 20px;">
                 <el-breadcrumb-item v-for="item in breadcrumbStore.dataList">{{ item }}</el-breadcrumb-item>
             </el-breadcrumb>
         </div>
@@ -32,7 +36,7 @@
 </template>
 
 <script setup>
-import { User, ArrowDown, Setting, Expand } from '@element-plus/icons-vue'
+import { User, ArrowDown, Setting, Expand, Fold } from '@element-plus/icons-vue'
 import { useBreadcrumbStore } from '../../stores/Breadcrumb'
 
 const breadcrumbStore = useBreadcrumbStore()
@@ -56,6 +60,15 @@ const handleLogout = () => {
     align-items: center;
     justify-content: space-between;
 
+    .home-header-center {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
+        flex: 1;
+        height: 100%;
+        width: 100%;
+    }
 
     .home-header-left {
         width: 200px;

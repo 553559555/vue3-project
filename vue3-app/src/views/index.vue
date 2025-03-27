@@ -4,9 +4,7 @@
             <home-header />
         </el-header>
         <el-container>
-            <el-aside width="200px">
-                <home-left />
-            </el-aside>
+            <home-left />
             <el-main>
                 <router-view>
                 </router-view>
@@ -43,9 +41,10 @@ div {
 
     .el-main {
         margin: 0px;
-        padding: 0px;
+        padding: 20px;
         width: 100%;
         height: 100%;
+        background-color: #f0f2f5;
     }
 }
 </style>
