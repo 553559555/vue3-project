@@ -57,6 +57,9 @@ const listData = reactive([
             },
             {
                 name: 'param'
+            },
+            {
+                name: 'animate'
             }
         ],
     },

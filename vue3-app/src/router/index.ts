@@ -36,6 +36,11 @@ const routes: Array<RouteRecordRaw> = [
         path: '/param',
         name: 'param',
         component: () => import('../views/param/index.vue')
+      },
+      {
+        path: '/animate',
+        name: 'animate',
+        component: () => import('../views/animate/animate.vue')
       }
     ]
   }
