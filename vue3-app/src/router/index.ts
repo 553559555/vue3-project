@@ -26,6 +26,16 @@ const routes: Array<RouteRecordRaw> = [
         path: '/input',
         name: 'input',
         component: () => import('../views/input/input.vue')
+      },
+      {
+        path: '/button',
+        name: 'button',
+        component: () => import('../views/button/index.vue')
+      },
+      {
+        path: '/param',
+        name: 'param',
+        component: () => import('../views/param/index.vue')
       }
     ]
   }

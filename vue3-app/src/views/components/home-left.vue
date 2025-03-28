@@ -56,7 +56,7 @@ const listData = reactive([
                 name: 'view'
             },
             {
-                name: 'chart'
+                name: 'param'
             }
         ],
     },

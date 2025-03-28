@@ -6,6 +6,7 @@
         </div>
         <div class="home-header-center">
             <el-icon color="#999" size="20" @click="breadcrumbStore.setIsCollapse">
+                <!-- {{ breadcrumbStore.isCollapse ? (Fold) : (Expand) }} -->
                 <Fold v-if="!breadcrumbStore.isCollapse" />
                 <Expand v-else />
             </el-icon>
