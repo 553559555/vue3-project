@@ -1,7 +1,7 @@
 <template>
     <div style="width: 100%; height: 100%;">
-        <el-table :data="dataArray.data" show-overflow-tooltip>
-          <el-table-column prop="provinceName" label="省份" width="100"></el-table-column>
+        <el-table :data="dataArray.data" show-overflow-tooltip >
+          <el-table-column prop="provinceName" label="省份" ></el-table-column>
           <el-table-column prop="cityName" label="城市" ></el-table-column>
           <el-table-column prop="countyName" label="区域" ></el-table-column>
           <el-table-column prop="name" label="名称"></el-table-column>
@@ -9,7 +9,7 @@
           <el-table-column prop="ctime" label="时间" ></el-table-column>
           <el-table-column label="图片">
             <template #default="scope">
-                <el-image :src="scope.row.img" lazy loading="lazy" fit="cover" placeholder style="width: 100px; height: 100px"></el-image>
+                <el-image :src="scope.row.img" lazy loading="lazy" fit="cover" placeholder style="width: 100px; height: 100px" :preview-src-list="imgs"></el-image>
             </template>
           </el-table-column>
           <el-table-column label="操作">
@@ -23,7 +23,16 @@
 
 <script setup lang="ts">
 
-import { reactive } from 'vue'
+import { reactive, ref, onMounted } from 'vue'
+
+const imgs = ref<string[]>([])
+
+onMounted(() => {
+    dataArray.data.map((item) => {
+        imgs.value.push(item.img)
+    })
+    console.log(imgs)
+})
 
 const onclick = (e: any) => {
     console.log(e.row.cityName)
