@@ -1,73 +1,94 @@
 <template>
     <div class="login-container">
-        <el-card>
-            <el-form :model="loginForm" :rules="rules" ref="loginFormRef" label-width="100px" class="login-form">
-                <el-form-item label="用户名" prop="userAccount">
-                    <el-input v-model="loginForm.userAccount" placeholder="请输入用户名" />
-                </el-form-item>
-                <el-form-item label="密码" prop="userPassword">
-                    <el-input v-model="loginForm.userPassword" type="password" placeholder="请输入密码" />
-                </el-form-item>
-                <el-switch v-model="loginForm.isRemember"></el-switch>
-                <el-text style="margin-left: 5px;">记住密码</el-text>
-                <el-button type="primary" @click="login" style="margin-left: 10px; width: 100px">登录</el-button>
-            </el-form>
-        </el-card>
+        <transition enter-active-class="animate__animated animate__zoomInDown">
+            <el-card v-if="isAnimate">
+                <el-form ref="loginFrom" :model="form" :rules="rules" label-width="80px" label-position="left">
+                    <el-form-item label="账号:" prop="userName">
+                        <el-input placeholder="请输入账户" v-model="form.userName" clearable></el-input>
+                    </el-form-item>
+                    <el-form-item label="密码:" prop="password">
+                        <el-input placeholder="请输入密码" v-model="form.password" type="password" show-password
+                            clearable></el-input>
+                    </el-form-item>
+                </el-form>
+                <div class="login-container-remember">
+                    <el-checkbox v-model="form.isRemember" label="记住密码" />
+                    <a @click="register">注册</a>
+                </div>
+                <el-button type="primary" class="login-button" @click="login"
+                    :loading="loginButtonLoading">登录</el-button>
+            </el-card>
+        </transition>
     </div>
+
+    <RegisterDialog ref="RegisterDialogRef" />
+
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { useUserLoginStore } from '../stores/user-login'
+import { ref, reactive, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
+import RegisterDialog from '../components/RegisterDialog.vue'
+import 'animate.css'
+import { ElMessage } from 'element-plus'
 
-const router = useRouter()
-const userLoginStore = useUserLoginStore()
-
-const loginFormRef = ref()
-const loginForm = ref({
-    userAccount: '',
-    userPassword: '',
+const loginButtonLoading = ref(false)
+const isAnimate = ref(false)
+const loginFrom = ref()
+const form = reactive({
+    userName: '',
+    password: '',
     isRemember: false
 })
+const router = useRouter()
+const RegisterDialogRef = ref()
+const rules = reactive({
+    userName: [
+        { required: true, message: '请输入账户', trigger: 'blur' },
+    ],
+    password: [
+        { required: true, message: '请输入密码', trigger: 'blur' }
+    ]
+
+})
+
 
 // 页面加载时检查是否有保存的登录信息
 onMounted(() => {
-    const savedInfo = userLoginStore.userInfo
-    if (savedInfo.isRemember) {
-        loginForm.value.userAccount = savedInfo.userAccount
-        loginForm.value.userPassword = savedInfo.userPassword
-        loginForm.value.isRemember = savedInfo.isRemember
+    isAnimate.value = true
+    console.log(localStorage.getItem('userAccountInfo') ?? '{}')
+    let userInfo = JSON.parse(localStorage.getItem('userAccountInfo') ?? '{}')
+    if (userInfo != '' && userInfo.isRemember) {
+        form.isRemember = userInfo.isRemember
+        form.userName = userInfo.userName
+        form.password = userInfo.password
     }
 })
 
-const rules = ref({
-    userAccount: [
-        { required: true, message: '请输入用户名', trigger: 'blur' }
-    ],
-    userPassword: [
-        { required: true, message: '请输入密码', trigger: 'blur' }
-    ]
-})
+
+const register = () => {
+    RegisterDialogRef.value.openDialog()
+}
 
 const login = () => {
-    loginFormRef.value.validate((valid: boolean) => {
-        if (valid) {
-            if (loginForm.value.isRemember) {
-                // 如果选择记住密码，保存登录信息
-                userLoginStore.saveUserInfo({
-                    userAccount: loginForm.value.userAccount,
-                    userPassword: loginForm.value.userPassword,
-                    isRemember: loginForm.value.isRemember
-                })
+    loginFrom.value?.validate((val: boolean) => {
+        if (val) {
+            if (form.isRemember) {
+                localStorage.setItem('userAccountInfo', JSON.stringify(form))
             } else {
-                // 如果不记住密码，清除保存的信息
-                userLoginStore.clearUserInfo()
+                localStorage.setItem('userAccountInfo', '{}')
             }
-            router.replace('/index')
+            loginButtonLoading.value = true
+            setTimeout(() => {
+                loginButtonLoading.value = false
+                router.push({ name: 'Home', replace: true })
+                ElMessage.success('登录成功')
+            }, 2000);
         }
-    })    
+    })
 }
+
+
 </script>
 
 <style scoped lang="scss">
@@ -78,5 +99,21 @@ const login = () => {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .el-input {
+        width: 200px;
+    }
+
+    &-remember {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .login-button {
+        width: 100%;
+        height: 40px;
+    }
 }
 </style>
