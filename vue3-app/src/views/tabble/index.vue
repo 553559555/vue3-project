@@ -18,6 +18,14 @@
             </template>
           </el-table-column>
         </el-table>
+        <el-pagination
+      v-model:current-page="state.currentPage"
+      v-model:page-size="state.pageSize"
+      :page-sizes="[10, 20, 30, 40]"
+      layout="total, sizes, prev, pager, next"
+      :total="state.total"
+      style="background-color: #fff; padding-left: 20px; height: 80px;"
+    />
     </div>
 </template>
 
@@ -27,11 +35,16 @@ import { reactive, ref, onMounted } from 'vue'
 
 const imgs = ref<string[]>([])
 
+const state = reactive({
+    'currentPage': 1,
+    'pageSize': 10,
+    'total': 100
+})
+
 onMounted(() => {
     dataArray.data.map((item) => {
         imgs.value.push(item.img)
     })
-    console.log(imgs)
 })
 
 const onclick = (e: any) => {
