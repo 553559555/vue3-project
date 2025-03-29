@@ -41,6 +41,11 @@ const routes: Array<RouteRecordRaw> = [
         path: '/animate',
         name: 'animate',
         component: () => import('../views/animate/animate.vue')
+      },
+      {
+        path: '/tabble',
+        name: 'table',
+        component: () => import('../views/tabble/index.vue')
       }
     ]
   }

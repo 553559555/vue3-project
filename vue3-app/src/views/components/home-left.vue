@@ -53,13 +53,13 @@ const listData = reactive([
         name: "组件列表",
         children: [
             {
-                name: 'view'
-            },
-            {
                 name: 'param'
             },
             {
                 name: 'animate'
+            },
+            {
+                name: 'table'
             }
         ],
     },

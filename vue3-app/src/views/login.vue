@@ -1,7 +1,7 @@
 <template>
     <div class="login-container">
-        <transition enter-active-class="animate__animated animate__zoomInDown">
-            <el-card v-if="isAnimate">
+        <transition appear appear-active-class="animate__animated animate__zoomInDown">
+            <el-card>
                 <el-form ref="loginFrom" :model="form" :rules="rules" label-width="80px" label-position="left">
                     <el-form-item label="账号:" prop="userName">
                         <el-input placeholder="请输入账户" v-model="form.userName" clearable></el-input>
@@ -33,7 +33,6 @@ import 'animate.css'
 import { ElMessage } from 'element-plus'
 
 const loginButtonLoading = ref(false)
-const isAnimate = ref(false)
 const loginFrom = ref()
 const form = reactive({
     userName: '',
@@ -55,8 +54,6 @@ const rules = reactive({
 
 // 页面加载时检查是否有保存的登录信息
 onMounted(() => {
-    isAnimate.value = true
-    console.log(localStorage.getItem('userAccountInfo') ?? '{}')
     let userInfo = JSON.parse(localStorage.getItem('userAccountInfo') ?? '{}')
     if (userInfo != '' && userInfo.isRemember) {
         form.isRemember = userInfo.isRemember

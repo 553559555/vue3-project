@@ -1,5 +1,5 @@
 <template>
-    <el-dialog title="title" width="600px" v-model="visible">
+    <el-dialog title="title" width="600px" v-model="visible" align-center>
       <span>这事一个消息</span>
       <div v-for="item in dataList" :key="item">{{ item }}</div>
       <template #footer>

@@ -39,15 +39,17 @@
 <script setup>
 import { User, ArrowDown, Setting, Expand, Fold } from '@element-plus/icons-vue'
 import { useBreadcrumbStore } from '../../stores/Breadcrumb'
+import { useRouter } from 'vue-router'
 
 const breadcrumbStore = useBreadcrumbStore()
+const router = useRouter()
 
 const handleSetting = () => {
     console.log('设置')
 }
 
 const handleLogout = () => {
-    console.log('退出')
+    router.replace({name: 'Login'})
 }
 
 </script>
