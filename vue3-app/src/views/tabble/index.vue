@@ -7,6 +7,11 @@
           <el-table-column prop="name" label="名称"></el-table-column>
           <el-table-column prop="lastFollowUserName" label="用户状态"></el-table-column>
           <el-table-column prop="ctime" label="时间" ></el-table-column>
+          <el-table-column label="图片">
+            <template #default="scope">
+                <el-image :src="scope.row.img" lazy loading="lazy" fit="cover" placeholder style="width: 100px; height: 100px"></el-image>
+            </template>
+          </el-table-column>
           <el-table-column label="操作">
             <template #default="scope">
                 <el-button type="primary" @click="onclick(scope)">修改</el-button>
@@ -50,7 +55,8 @@ const dataArray = reactive({
             "utime": "2022-11-28 16:44:09",
             "wechatAccount": "",
             "wechatFriendTypeDictCode": null,
-            "wechatName": ""
+            "wechatName": "",
+            "img": "http://cdn.ynhuashengjin.com/system/20221024/fd19e178-6694-4307-a8bb-4f6b6d1620a8.jpg"
         },
         {
             "belongServiceWechat": null,
@@ -76,7 +82,8 @@ const dataArray = reactive({
             "utime": "2022-11-25 15:22:10",
             "wechatAccount": "",
             "wechatFriendTypeDictCode": null,
-            "wechatName": ""
+            "wechatName": "",
+            "img": "http://cdn.ynhuashengjin.com/system/20221024/fd19e178-6694-4307-a8bb-4f6b6d1620a8.jpg"
         }
     ]
 })
